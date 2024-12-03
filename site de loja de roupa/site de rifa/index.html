@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rifa - Panela de Pressão e Whisky White Horse</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Função para gerar a tabela com 20 colunas e 10 linhas
+        function gerarTabela() {
+            const tabela = document.getElementById('tabela-numeros');
+            let numero = 1;
+            // Gerar 10 linhas e 20 colunas
+            for (let i = 0; i < 10; i++) {
+                const tr = document.createElement('tr');
+                for (let j = 0; j < 20; j++) {
+                    const td = document.createElement('td');
+                    td.textContent = numero;
+                    td.classList.add('numero');
+                    td.setAttribute('data-numero', numero);  // Atribui o número à célula
+                    
+                    // Adiciona evento de clique para selecionar a célula
+                    td.addEventListener('click', function() {
+                        selecionarNumero(td);
+                    });
+
+                    tr.appendChild(td);
+                    numero++;  // Incrementa o número para o próximo
+                }
+                tabela.appendChild(tr);  // Adiciona a linha na tabela
+            }
+        }
+
+        // Função para selecionar o número e mudar a cor da célula
+        function selecionarNumero(celula) {
+            const numeroSelecionado = document.querySelector('.selecionado');
+            if (numeroSelecionado) {
+                // Remove a classe "selecionado" da célula anterior
+                numeroSelecionado.classList.remove('selecionado');
+            }
+
+            // Marca a célula clicada como selecionada
+            celula.classList.add('selecionado');
+        }
+
+        // Função para enviar a rifa via WhatsApp
+        function enviarRifa() {
+            const numeroSelecionado = document.querySelector('.selecionado');
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const valor = 10; // Cada número custa 10 reais
+            if (!numeroSelecionado) {
+                alert('por favor, selecione um número!');
+                return;
+            }
+
+            const numero = numeroSelecionado.getAttribute('data-numero');
+            const mensagem = encodeURIComponent(
+                `Olá! Meu nome é ${nome} e meu telefone é ${telefone}. Eu quero comprar o número ${numero} na rifa. Total: R$${valor}.`
+            );
+            const linkWhatsApp = `https://wa.me/55seunumerodetelefone?text=${mensagem}`;
+
+            window.location.href = linkWhatsApp;
+        }
+
+        // Chamar a função para gerar a tabela quando a página carregar
+        window.onload = gerarTabela;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Rifa Panela de Pressão e Whisky White Horse</h1>
+        <p>Compre seu número por apenas R$10,00 e concorra a prêmios incríveis!</p>
+    </header>
+
+    <section class="rifa">
+        <h2>Escolha um número da rifa:</h2>
+        <form id="rifaForm">
+            <table id="tabela-numeros">
+                <!-- A tabela será preenchida dinamicamente via JavaScript -->
+            </table>
+            <br>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" required placeholder="Digite seu nome">
+            <br>
+            <label for="telefone">Telefone (com DDD):</label>
+            <input type="text" id="telefone" required placeholder="Digite seu telefone">
+            <br>
+            <button type="button" onclick="enviarRifa()">Comprar Número</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Obrigado por participar da nossa rifa! Boa sorte!</p>
+    </footer>
+</body>
+</html>

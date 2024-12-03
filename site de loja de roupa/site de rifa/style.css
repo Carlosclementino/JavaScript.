@@ -1,0 +1,111 @@
+/* Reset básico de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garantir que o fundo da página seja branco */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;  /* Cor de fundo branca para o body */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  /* Para garantir que ocupe toda a altura da tela */
+    flex-direction: column;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;  /* Para que ocupe toda a largura */
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.rifa {
+    padding: 20px;
+    max-width: 1200px; /* Maior largura para acomodar as colunas */
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;  /* Para garantir que ocupe a largura total */
+}
+
+.rifa h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px; /* Maior padding para facilitar o clique */
+    text-align: center;
+    border: 1px solid #ddd;
+    width: 5%; /* Ajusta a largura das células */
+    cursor: pointer; /* Indica que a célula é clicável */
+    transition: background-color 0.3s ease; /* Efeito suave para a cor */
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table td.selecionado {
+    background-color: #000;
+    color: white;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 30px;
+    width: 100%;
+}
+
+footer p {
+    font-size: 1.1em;
+}
