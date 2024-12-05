@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Script</title>
+    <style>
+        body{
+            background-color: rgba(49, 49, 255, 0.459);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+    <p>Já me livrei da maldição</p>
+    <script>
+        //para converter uma string em number é necessário colocar Number.parseInt para numeros inteiros ou Number.parseFloat para numeros com pontos, como 5.5
+        // mas tambem pode se escrever com apenas Number como esta abaixo, e para converter um Number para uma string é só colocar string(n) ou n.toString()
+       var n1 = Number(window.prompt('Digite um numero: '))
+       var n2 = Number(window.prompt('Digite outro numero: '))
+       var s = n1+n2
+       window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`)
+       // (number + number) para adição
+       // (string + string) para contatenação
+    </script>
+</body>
+</html>
